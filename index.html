@@ -51,9 +51,9 @@
     .logo:hover { opacity: 0.9; }
 
     .logo-icon {
-      width: 100px;
-      height: 100px;
-      filter: invert(1);
+      width: 28px;
+      height: 28px;
+      display: block;
     }
 
     .logo-text {
@@ -61,18 +61,6 @@
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-    }
-    
-    .top-email a {
-      font-size: 13px;
-      color: var(--muted);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-    }
-
-    .top-email a:hover {
-      color: var(--accent);
-      border-bottom-color: rgba(6, 182, 212, 0.5);
     }
 
     .social-links {
@@ -264,9 +252,11 @@
         <span class="logo-text">Stekic</span>
       </a>
 
-      <div class="top-email">
-        <a href="mailto:hello@stekic.dev">hello@stekic.dev</a>
-      </div>
+      <nav class="social-links" aria-label="Social links">
+        <a href="https://linkedin.com/in/nemanya3d" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/X882b" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.instagram.com/nemanya3d/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </nav>
     </header>
 
     <section class="hero">
