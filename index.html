@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <title>Stekic Digital Studio</title>
-  <link rel="icon" type="image/png" href="favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Stekic Digital Studio – 3D, design and code by Nemanja Stekic." />
-
   <style>
     :root {
       --bg: #0b1120;
@@ -31,8 +29,7 @@
       margin: 0 auto;
     }
 
-    /* NEW: Header w/ logo (desktop text, mobile icon-only) */
-    .site-header {
+    header {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -40,46 +37,11 @@
       margin-bottom: 40px;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--text);
-    }
-
-    .logo:hover { opacity: 0.9; }
-
-    .logo-icon {
-      width: 28px;
-      height: 28px;
-      display: block;
-    }
-
-    .logo-text {
-      font-size: 0.95rem;
+    .brand {
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
+      font-size: 18px;
       text-transform: uppercase;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .social-links a {
-      font-size: 13px;
-      color: var(--muted);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-    }
-
-    .social-links a:hover {
-      color: var(--accent);
-      border-bottom-color: rgba(6, 182, 212, 0.5);
     }
 
     .pill {
@@ -234,29 +196,18 @@
       .hero {
         grid-template-columns: 1fr;
       }
-    }
-
-    /* Mobile: icon only */
-    @media (max-width: 640px) {
-      .logo-text { display: none; }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
-
 <body>
   <div class="page">
-    <!-- NEW HEADER -->
-    <header class="site-header">
-      <a class="logo" href="/" aria-label="Stekic Digital Studio home">
-        <img src="logo.svg" alt="Stekic Digital Studio logo" class="logo-icon">
-        <span class="logo-text">Stekic</span>
-      </a>
-
-      <nav class="social-links" aria-label="Social links">
-        <a href="https://linkedin.com/in/nemanya3d" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://github.com/X882b" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://www.instagram.com/nemanya3d/" target="_blank" rel="noopener noreferrer">Instagram</a>
-      </nav>
+    <header>
+      <div class="brand">Stekic Digital Studio</div>
+      <div class="pill">hello@stekic.dev</div>
     </header>
 
     <section class="hero">
@@ -324,6 +275,8 @@
               Simple databases and dashboards to explore structure, queries and how data supports projects.
             </div>
           </div>
+
+          <!-- You can add links to GitHub, ArtStation, etc. here -->
         </div>
       </section>
 
@@ -332,17 +285,8 @@
         <div class="section-body">
           For collaborations, experiments or just to say hi:
           <br />
-          <strong style="color:#e5e7eb;">Email:</strong>
+          <strong>Email:</strong>
           <a href="mailto:hello@stekic.dev">hello@stekic.dev</a>
-
-          <div style="margin-top:12px;">
-            <strong style="color:#e5e7eb;">Links:</strong>
-            <a href="https://linkedin.com/in/nemanya3d" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            &nbsp;·&nbsp;
-            <a href="https://github.com/X882b" target="_blank" rel="noopener noreferrer">GitHub</a>
-            &nbsp;·&nbsp;
-            <a href="https://www.instagram.com/nemanya3d/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          </div>
         </div>
       </section>
     </main>
