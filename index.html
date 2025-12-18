@@ -2,24 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Stekic Digital Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Stekic Digital Studio – 3D, design and code by Nemanja Stekic." />
-
-  <title>Stekic Digital Studio</title>
-
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Fallback / general -->
   <link rel="icon" type="image/png" href="/favicon.png">
 
-  <!-- App / PWA -->
+<!-- App / PWA -->
   <link rel="manifest" href="/manifest.json">
   <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
   <link rel="apple-touch-icon" sizes="512x512" href="/icon-512.png">
-
-  <style>
+ <style>
     :root {
       --bg: #0b1120;
       --card: #020617;
@@ -28,173 +27,306 @@
       --muted: #9ca3af;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(1200px 600px at 10% 0%, #0f172a, var(--bg));
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
       color: var(--text);
+      line-height: 1.6;
+      padding: 24px;
     }
 
-    .container {
-      max-width: 1100px;
+    .page {
+      max-width: 960px;
       margin: 0 auto;
-      padding: 28px 24px 80px;
     }
 
-    /* Top bar */
-    .topbar {
+    header {
       display: flex;
-      justify-content: flex-end;
       align-items: center;
+      justify-content: space-between;
       gap: 16px;
-      font-size: 14px;
+      margin-bottom: 40px;
+    }
+
+    .brand {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 4px 10px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+      gap: 32px;
+      align-items: center;
       margin-bottom: 48px;
     }
 
-    .topbar a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .topbar span {
-      color: var(--muted);
-      font-weight: 500;
-      letter-spacing: 0.04em;
-    }
-
-    /* Hero card */
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border-radius: 20px;
-      padding: 48px;
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .eyebrow {
-      color: var(--accent);
-      font-size: 12px;
-      letter-spacing: 0.2em;
-      margin-bottom: 16px;
-    }
-
     h1 {
-      font-size: clamp(32px, 5vw, 52px);
-      line-height: 1.1;
-      margin: 0 0 20px;
+      font-size: clamp(32px, 4vw, 40px);
+      margin-bottom: 12px;
     }
 
-    p {
-      max-width: 600px;
+    .hero p {
       color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 28px;
+      max-width: 36rem;
     }
 
-    .actions {
+    .tagline {
+      margin-bottom: 16px;
+      color: var(--accent);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .hero-actions {
+      margin-top: 18px;
       display: flex;
-      gap: 16px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
     .btn {
-      padding: 12px 20px;
       border-radius: 999px;
+      padding: 8px 18px;
       font-size: 14px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #020617;
       text-decoration: none;
       font-weight: 500;
     }
 
-    .btn.primary {
-      background: var(--accent);
-      color: #020617;
-    }
-
     .btn.secondary {
-      border: 1px solid rgba(255,255,255,0.2);
+      background: transparent;
       color: var(--accent);
     }
 
-    /* Side box */
-    .side {
-      margin-top: 32px;
-      max-width: 360px;
-      padding: 20px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.06);
-      background: rgba(2,6,23,0.6);
-      color: var(--muted);
-      font-size: 14px;
+    .hero-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 16px;
+      padding: 18px 18px 12px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      font-size: 13px;
     }
 
-    .side strong {
-      color: var(--text);
-      display: block;
+    .hero-card h2 {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .hero-list {
+      list-style: none;
+      display: grid;
+      gap: 4px;
+      color: var(--muted);
+    }
+
+    main {
+      display: grid;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    section {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 18px;
+      padding: 20px 18px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    section h2 {
+      font-size: 18px;
       margin-bottom: 10px;
     }
 
-    ul {
-      padding-left: 16px;
-      margin: 0;
+    .section-body {
+      font-size: 14px;
+      color: var(--muted);
     }
 
-    li {
-      margin-bottom: 6px;
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
     }
 
-    @media (min-width: 900px) {
-      .layout {
-        display: flex;
-        gap: 48px;
+    .chip {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+    }
+
+    .projects {
+      display: grid;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .project-title {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .project-meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer {
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid rgba(30, 64, 175, 0.4);
+      padding-top: 16px;
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      header {
+        flex-direction: column;
         align-items: flex-start;
       }
     }
   </style>
 </head>
-
 <body>
-  <div class="container">
+  <div class="page">
+    <header>
+      <div class="brand">Stekic Digital Studio</div>
+      <div class="pill">hello@stekic.dev</div>
+    </header>
 
-    <!-- Top bar -->
-    <div class="topbar">
-      <a href="mailto:hello@stekic.dev">hello@stekic.dev</a>
-      <span>Stekic Digital Studio</span>
-    </div>
+    <section class="hero">
+      <div>
+        <div class="tagline">3D · Design · Code</div>
+        <h1>Digital experiments by Nemanja Stekic.</h1>
+        <p>
+          Stekic Digital Studio is a one–person lab where 3D, tooling and small applications come together.
+          From Blender scenes to crude tools and databases, everything is built with curiosity and iteration.
+        </p>
 
-    <!-- Hero -->
-    <div class="card">
-      <div class="layout">
-        <div>
-          <div class="eyebrow">3D · DESIGN · CODE</div>
-          <h1>Digital experiments by<br>Nemanja Stekic.</h1>
-
-          <p>
-            Stekic Digital Studio is a one-person lab where 3D, tooling and small
-            applications come together. From Blender scenes to crude tools and
-            databases, everything is built with curiosity and iteration.
-          </p>
-
-          <div class="actions">
-            <a class="btn primary" href="mailto:hello@stekic.dev">Contact</a>
-            <a class="btn secondary" href="#" aria-disabled="true">View projects</a>
-          </div>
-        </div>
-
-        <div class="side">
-          <strong>Currently exploring</strong>
-          <ul>
-            <li>3D asset creation in Blender</li>
-            <li>Small tools & CRUD apps</li>
-            <li>Databases & simple backends</li>
-            <li>Workflow automation & experiments</li>
-          </ul>
+        <div class="hero-actions">
+          <a class="btn" href="mailto:hello@stekic.dev">Contact</a>
+          <a class="btn secondary" href="#projects">View projects</a>
         </div>
       </div>
-    </div>
 
+      <div class="hero-card">
+        <h2>Currently exploring</h2>
+        <ul class="hero-list">
+          <li>• 3D asset creation in Blender</li>
+          <li>• Small tools & CRUD apps</li>
+          <li>• Databases & simple backends</li>
+          <li>• Workflow automation & experiments</li>
+        </ul>
+      </div>
+    </section>
+
+    <main>
+      <section id="about">
+        <h2>About</h2>
+        <div class="section-body">
+          I’m Nemanja, a self-taught maker playing at the intersection of 3D and code.
+          I enjoy prototyping ideas quickly – from visual concepts in Blender to practical tools that solve
+          small, real problems.
+          <div class="chips">
+            <span class="chip">Blender</span>
+            <span class="chip">Python / JS</span>
+            <span class="chip">SQLite / Postgres</span>
+            <span class="chip">Automation</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Selected projects</h2>
+        <div class="section-body projects">
+          <div>
+            <div class="project-title">3D Asset Experiments</div>
+            <div class="project-meta">
+              Blender | Hard-surface props, simple environments and lighting studies.
+            </div>
+          </div>
+
+          <div>
+            <div class="project-title">CRUDE Tools</div>
+            <div class="project-meta">
+              Small utilities and CRUD apps for managing data, testing ideas and speeding up workflows.
+            </div>
+          </div>
+
+          <div>
+            <div class="project-title">Database Playgrounds</div>
+            <div class="project-meta">
+              Simple databases and dashboards to explore structure, queries and how data supports projects.
+            </div>
+          </div>
+
+          <!-- You can add links to GitHub, ArtStation, etc. here -->
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <div class="section-body">
+          For collaborations, experiments or just to say hi:
+          <br />
+          <strong>Email:</strong>
+          <a href="mailto:hello@stekic.dev">hello@stekic.dev</a>
+
+          <div style="margin-top:12px;">
+            You can also find me here:
+            <br />
+            <a href="https://linkedin.com/in/nemanya3d" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            &nbsp;·&nbsp;
+            <a href="https://www.instagram.com/nemanya3d/" target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>
+            &nbsp;·&nbsp;
+            <a href="https://github.com/X882b" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© <span id="year"></span> Stekic Digital Studio</span>
+      <span>Built by Nemanja Stekic</span>
+    </footer>
   </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
