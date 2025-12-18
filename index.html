@@ -2,128 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Stekic Digital Studio – 3D, design and code by Nemanja Stekic." />
 
   <title>Stekic Digital Studio</title>
 
-  <!-- Favicon & PWA -->
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="manifest" href="/manifest.json" />
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" href="/favicon.png">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <!-- App / PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="/icon-512.png">
 
   <style>
     :root {
-      --bg: #060817;
-      --card: rgba(255, 255, 255, 0.04);
-      --border: rgba(255, 255, 255, 0.08);
-      --text: rgba(255, 255, 255, 0.85);
-      --muted: rgba(255, 255, 255, 0.6);
-      --accent: #00d2ff;
+      --bg: #0b1120;
+      --card: #020617;
+      --accent: #06b6d4;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
-      font-family: "Inter", system-ui, sans-serif;
-      background: radial-gradient(circle at top, #0b102d, var(--bg));
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(1200px 600px at 10% 0%, #0f172a, var(--bg));
       color: var(--text);
-      min-height: 100vh;
     }
 
-    /* ================= HEADER ================= */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 24px 80px;
+    }
 
-    .site-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding: 24px 32px;
+    /* Top bar */
+    .topbar {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
-      z-index: 1000;
-      pointer-events: none;
+      gap: 16px;
+      font-size: 14px;
+      margin-bottom: 48px;
     }
 
-    .site-header a {
-      pointer-events: auto;
+    .topbar a {
+      color: var(--accent);
       text-decoration: none;
     }
 
-    .brand {
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.3px;
-      color: var(--text);
-      opacity: 0.85;
-      transition: opacity 0.2s ease;
-    }
-
-    .brand:hover {
-      opacity: 1;
-    }
-
-    .email-link {
-      font-size: 13px;
+    .topbar span {
       color: var(--muted);
-      transition: color 0.2s ease;
+      font-weight: 500;
+      letter-spacing: 0.04em;
     }
 
-    .email-link:hover {
-      color: var(--text);
-    }
-
-    /* ================= LAYOUT ================= */
-
-    main {
-      padding-top: 120px;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding-left: 24px;
-      padding-right: 24px;
-    }
-
+    /* Hero card */
     .card {
-      background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.06),
-        rgba(255, 255, 255, 0.02)
-      );
-      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
       border-radius: 20px;
-      padding: 40px;
-      margin-bottom: 32px;
-      backdrop-filter: blur(20px);
+      padding: 48px;
+      border: 1px solid rgba(255,255,255,0.06);
     }
-
-    /* ================= HERO ================= */
 
     .eyebrow {
-      font-size: 12px;
-      letter-spacing: 2px;
       color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.2em;
       margin-bottom: 16px;
     }
 
     h1 {
-      font-size: 44px;
-      line-height: 1.2;
-      margin-bottom: 20px;
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.1;
+      margin: 0 0 20px;
     }
 
-    .hero-text {
-      max-width: 520px;
+    p {
+      max-width: 600px;
       color: var(--muted);
       line-height: 1.6;
       margin-bottom: 28px;
@@ -132,140 +97,104 @@
     .actions {
       display: flex;
       gap: 16px;
+      flex-wrap: wrap;
     }
 
     .btn {
-      padding: 12px 18px;
+      padding: 12px 20px;
       border-radius: 999px;
       font-size: 14px;
       text-decoration: none;
-      border: 1px solid var(--border);
-      transition: all 0.2s ease;
+      font-weight: 500;
     }
 
     .btn.primary {
       background: var(--accent);
-      color: #001018;
-      border-color: transparent;
+      color: #020617;
     }
 
     .btn.secondary {
-      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--accent);
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    /* ================= GRID ================= */
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 32px;
-    }
-
-    .side-card h3 {
+    /* Side box */
+    .side {
+      margin-top: 32px;
+      max-width: 360px;
+      padding: 20px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(2,6,23,0.6);
+      color: var(--muted);
       font-size: 14px;
-      margin-bottom: 12px;
     }
 
-    .side-card ul {
-      list-style: none;
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.7;
+    .side strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 10px;
     }
 
-    /* ================= ABOUT ================= */
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
+    ul {
+      padding-left: 16px;
+      margin: 0;
     }
 
-    .tag {
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--muted);
+    li {
+      margin-bottom: 6px;
     }
 
-    /* ================= RESPONSIVE ================= */
-
-    @media (max-width: 900px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 36px;
+    @media (min-width: 900px) {
+      .layout {
+        display: flex;
+        gap: 48px;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 
 <body>
+  <div class="container">
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <a href="/" class="brand">Stekic Digital Studio</a>
-    <a href="mailto:hello@stekic.dev" class="email-link">hello@stekic.dev</a>
-  </header>
+    <!-- Top bar -->
+    <div class="topbar">
+      <a href="mailto:hello@stekic.dev">hello@stekic.dev</a>
+      <span>Stekic Digital Studio</span>
+    </div>
 
-  <!-- MAIN -->
-  <main>
+    <!-- Hero -->
+    <div class="card">
+      <div class="layout">
+        <div>
+          <div class="eyebrow">3D · DESIGN · CODE</div>
+          <h1>Digital experiments by<br>Nemanja Stekic.</h1>
 
-    <!-- HERO -->
-    <section class="card hero-grid">
-      <div>
-        <div class="eyebrow">3D · DESIGN · CODE</div>
-        <h1>Digital experiments by<br>Nemanja Stekic.</h1>
+          <p>
+            Stekic Digital Studio is a one-person lab where 3D, tooling and small
+            applications come together. From Blender scenes to crude tools and
+            databases, everything is built with curiosity and iteration.
+          </p>
 
-        <p class="hero-text">
-          Stekic Digital Studio is a one-person lab where 3D, tooling and small
-          applications come together. From Blender scenes to crude tools and
-          databases, everything is built with curiosity and iteration.
-        </p>
+          <div class="actions">
+            <a class="btn primary" href="mailto:hello@stekic.dev">Contact</a>
+            <a class="btn secondary" href="#" aria-disabled="true">View projects</a>
+          </div>
+        </div>
 
-        <div class="actions">
-          <a href="mailto:hello@stekic.dev" class="btn primary">Contact</a>
-          <a href="#projects" class="btn secondary">View projects</a>
+        <div class="side">
+          <strong>Currently exploring</strong>
+          <ul>
+            <li>3D asset creation in Blender</li>
+            <li>Small tools & CRUD apps</li>
+            <li>Databases & simple backends</li>
+            <li>Workflow automation & experiments</li>
+          </ul>
         </div>
       </div>
+    </div>
 
-      <div class="card side-card">
-        <h3>Currently exploring</h3>
-        <ul>
-          <li>• 3D asset creation in Blender</li>
-          <li>• Small tools & CRUD apps</li>
-          <li>• Databases & simple backends</li>
-          <li>• Workflow automation & experiments</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="card">
-      <h3>About</h3>
-      <p class="hero-text">
-        I'm Nemanja, a self-taught maker playing at the intersection of 3D and
-        code. I enjoy prototyping ideas quickly — from visual concepts in Blender
-        to practical tools that solve small, real problems.
-      </p>
-
-      <div class="tags">
-        <span class="tag">Blender</span>
-        <span class="tag">Python / JS</span>
-        <span class="tag">SQLite / Postgres</span>
-        <span class="tag">Automation</span>
-      </div>
-    </section>
-
-  </main>
-
+  </div>
 </body>
 </html>
