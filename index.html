@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Stekic Digital Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Stekic Digital Studio – 3D, design and code by Nemanja Stekic." />
+  <title>Stekic Digital Studio</title>
+
+   <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- Fallback / general -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- App / PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="/icon-512.png">
+
   <style>
     :root {
       --bg: #0b1120;
@@ -29,27 +44,23 @@
       margin: 0 auto;
     }
 
-    header {
+    /* Top-right email (old style, refined) */
+    .top-email {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 40px;
+      justify-content: flex-end;
+      margin-bottom: 32px;
     }
 
-    .brand {
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      font-size: 18px;
-      text-transform: uppercase;
-    }
-
-    .pill {
-      border-radius: 999px;
-      padding: 4px 10px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 12px;
+    .top-email a {
+      font-size: 13px;
       color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    .top-email a:hover {
+      color: var(--accent);
+      border-bottom-color: rgba(6, 182, 212, 0.5);
     }
 
     .hero {
@@ -196,19 +207,16 @@
       .hero {
         grid-template-columns: 1fr;
       }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
     }
   </style>
 </head>
+
 <body>
   <div class="page">
-    <header>
-      <div class="brand">Stekic Digital Studio</div>
-      <div class="pill">hello@stekic.dev</div>
-    </header>
+    <!-- Old-style top-right email -->
+    <div class="top-email">
+      <a href="mailto:hello@stekic.dev">hello@stekic.dev</a>
+    </div>
 
     <section class="hero">
       <div>
@@ -275,8 +283,6 @@
               Simple databases and dashboards to explore structure, queries and how data supports projects.
             </div>
           </div>
-
-          <!-- You can add links to GitHub, ArtStation, etc. here -->
         </div>
       </section>
 
@@ -285,8 +291,17 @@
         <div class="section-body">
           For collaborations, experiments or just to say hi:
           <br />
-          <strong>Email:</strong>
+          <strong style="color: var(--text);">Email:</strong>
           <a href="mailto:hello@stekic.dev">hello@stekic.dev</a>
+
+          <div style="margin-top:12px;">
+            <strong style="color: var(--text);">Links:</strong>
+            <a href="https://linkedin.com/in/nemanya3d" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            &nbsp;·&nbsp;
+            <a href="https://github.com/X882b" target="_blank" rel="noopener noreferrer">GitHub</a>
+            &nbsp;·&nbsp;
+            <a href="https://www.instagram.com/nemanya3d/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
         </div>
       </section>
     </main>
