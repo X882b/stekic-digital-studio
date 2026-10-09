@@ -8,7 +8,14 @@
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">  <!-- Fallback / general -->  <link rel="icon" type="image/png" href="/favicon.png">  <!-- App / PWA -->  <link rel="manifest" href="/manifest.json">
   <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
-  <link rel="apple-touch-icon" sizes="512x512" href="/icon-512.png">  <style>
+  <link rel="apple-touch-icon" sizes="512x512" href="/icon-512.png">
+  <!-- three.js for the orb widget -->
+  <script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.176.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.176.0/examples/jsm/"
+  } }
+  </script>  <style>
     :root {
       --bg: #0b1120;
       --card: #020617;
@@ -126,6 +133,18 @@
       font-size: 13px;
     }
 
+    .hero-side {
+      display: grid;
+      gap: 16px;
+    }
+
+    .orb {
+      width: 100%;
+      max-width: 300px;
+      aspect-ratio: 1;
+      margin: 0 auto;
+    }
+
     .hero-card h2 {
       font-size: 14px;
       margin-bottom: 8px;
@@ -214,6 +233,10 @@
         grid-template-columns: 1fr;
       }
 
+      .orb {
+        max-width: 240px;
+      }
+
       header {
         flex-direction: row;
         align-items: center;
@@ -243,6 +266,9 @@
     </div>
   </div>
 
+  <div class="hero-side">
+  <div class="orb" id="orb"></div>
+
   <div class="hero-card">
     <h2>Currently exploring</h2>
 
@@ -252,6 +278,7 @@
       <li>• Databases & simple backends</li>
       <li>• Workflow automation & experiments</li>
     </ul>
+  </div>
   </div>
 </section>
 
@@ -369,5 +396,18 @@
 
   </div>  <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script type="module">
+    // Hovering orb: click/tap it to scan. If WebGL or the CDN is unavailable,
+    // drop the slot so the hero card sits where it did before.
+    const el = document.getElementById('orb');
+    try {
+      if (!document.createElement('canvas').getContext('webgl2')) throw new Error('WebGL2 unavailable');
+      const { mountOrb } = await import('/orb/orb-widget.js');
+      await mountOrb(el, { src: '/orb/orb.glb', fallback: '/orb/orb-full.glb' });
+    } catch (err) {
+      console.warn('orb disabled:', err);
+      el.remove();
+    }
   </script></body>
 </html>
