@@ -133,16 +133,13 @@
       font-size: 13px;
     }
 
-    .hero-side {
-      display: grid;
-      gap: 16px;
-    }
-
     .orb {
-      width: 100%;
-      max-width: 300px;
+      position: fixed;
+      right: max(8px, env(safe-area-inset-right));
+      bottom: max(8px, env(safe-area-inset-bottom));
+      width: 180px;
       aspect-ratio: 1;
-      margin: 0 auto;
+      z-index: 10;
     }
 
     .hero-card h2 {
@@ -234,7 +231,12 @@
       }
 
       .orb {
-        max-width: 240px;
+        width: 120px;
+      }
+
+      /* room under the footer so it can scroll clear of the orb */
+      body {
+        padding-bottom: 136px;
       }
 
       header {
@@ -266,9 +268,6 @@
     </div>
   </div>
 
-  <div class="hero-side">
-  <div class="orb" id="orb"></div>
-
   <div class="hero-card">
     <h2>Currently exploring</h2>
 
@@ -278,7 +277,6 @@
       <li>• Databases & simple backends</li>
       <li>• Workflow automation & experiments</li>
     </ul>
-  </div>
   </div>
 </section>
 
@@ -394,7 +392,9 @@
   <span>Built by Nemanja Stekic</span>
 </footer>
 
-  </div>  <script>
+  </div>
+
+  <div class="orb" id="orb"></div>  <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
   <script type="module">
